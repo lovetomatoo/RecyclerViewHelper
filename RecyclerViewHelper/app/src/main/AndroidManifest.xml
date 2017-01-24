@@ -15,7 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-30.92+2.88-562.6-44.48-45
+
         <activity android:name=".activity.MainActivity"/>
 
         <activity android:name=".activity.AnimationActivity"/>
