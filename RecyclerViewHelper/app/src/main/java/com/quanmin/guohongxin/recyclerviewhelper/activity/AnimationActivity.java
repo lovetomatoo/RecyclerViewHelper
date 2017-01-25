@@ -32,7 +32,6 @@ public class AnimationActivity extends AppCompatActivity {
 
         initData();
         initView();
-
     }
 
     private void initData() {
@@ -50,7 +49,7 @@ public class AnimationActivity extends AppCompatActivity {
         mRvAnim = (RecyclerView) findViewById(R.id.rv_anim);
 
         mRvAnim.setHasFixedSize(true);
-        mRvAnim.setLayoutManager(new LinearLayoutManager(this));
+        mRvAnim.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         AnimationAdapter animationAdapter = new AnimationAdapter(mData);
         mRvAnim.setAdapter(animationAdapter);
