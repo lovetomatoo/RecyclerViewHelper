@@ -8,4 +8,7 @@
     <string name="item_main_5">item5</string>
     <string name="item_main_6">item6</string>
     <string name="item_main_7">item7</string>
+
+    <string name="item_anim_1">item1</string>
+    <string name="item_anim_2">item2</string>
 </resources>

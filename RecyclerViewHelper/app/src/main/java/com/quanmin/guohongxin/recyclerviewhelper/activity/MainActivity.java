@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initData() {
+
         mData = new ArrayList<>();
         for (int i = 0; i < des_res.length; i++) {
             HomeItemModel homeItemModel = new HomeItemModel();

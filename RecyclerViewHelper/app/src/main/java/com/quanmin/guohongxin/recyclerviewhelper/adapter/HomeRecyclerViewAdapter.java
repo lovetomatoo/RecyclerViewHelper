@@ -49,7 +49,7 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
         return mList == null ? 0 : mList.size();
     }
 
-    class Holder extends RecyclerView.ViewHolder {
+    static class Holder extends RecyclerView.ViewHolder {
 
         private final ImageView ivItemRvMain;
         private final TextView tvItemRvMain;
