@@ -9,10 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import com.quanmin.guohongxin.recyclerviewhelper.R;
 
 /**
- * Created by Administrator on 2017/1/24.
+ * Created by guo_hx on 2017/1/24.
  */
 
 public class SplashActivity extends AppCompatActivity {
+
+    private String TAG = getClass().getSimpleName();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

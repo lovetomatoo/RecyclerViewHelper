@@ -13,7 +13,7 @@ import com.quanmin.guohongxin.recyclerviewhelper.bean.AnimItemModel;
 import java.util.ArrayList;
 
 /**
- * Created by Administrator on 2017/1/24.
+ * Created by guo_hx on 2017/1/24.
  */
 public class AnimationActivity extends AppCompatActivity {
 
@@ -35,6 +35,7 @@ public class AnimationActivity extends AppCompatActivity {
     }
 
     private void initData() {
+
         mData = new ArrayList<>();
         for (int i = 0; i < 50; i++) {
             AnimItemModel animItemModel = new AnimItemModel();
@@ -54,6 +55,5 @@ public class AnimationActivity extends AppCompatActivity {
         AnimationAdapter animationAdapter = new AnimationAdapter(mData);
         mRvAnim.setAdapter(animationAdapter);
     }
-
 
 }

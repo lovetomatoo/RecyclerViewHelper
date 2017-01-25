@@ -11,17 +11,20 @@ import com.quanmin.guohongxin.recyclerviewhelper.bean.HomeItemModel;
 
 import java.util.ArrayList;
 
+/**
+ * Created by guo_hx on 2017/1/25.
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     private String TAG = getClass().getSimpleName();
 
-    private RecyclerView mRvMain;
-
     private int des_res[] = {R.string.item_main_1, R.string.item_main_2, R.string.item_main_3, R.string.item_main_4, R.string.item_main_5, R.string.item_main_6, R.string.item_main_7};
     private int pic_res[] = {R.mipmap.item_main, R.mipmap.item_main, R.mipmap.item_main, R.mipmap.item_main, R.mipmap.item_main, R.mipmap.item_main, R.mipmap.item_main};
-    private Class<?> class_res[] = {AnimationActivity.class, MainActivity.class, MainActivity.class, MainActivity.class, MainActivity.class, MainActivity.class, MainActivity.class};
-    private ArrayList<HomeItemModel> mData;
+    private Class<?> class_res[] = {AnimationActivity.class, AnimationActivity.class, AnimationActivity.class, AnimationActivity.class, AnimationActivity.class, AnimationActivity.class, AnimationActivity.class};
 
+    private RecyclerView mRvMain;
+    private ArrayList<HomeItemModel> mData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,5 @@ public class MainActivity extends AppCompatActivity {
         mRvMain.setLayoutManager(new GridLayoutManager(this, 2));
         mRvMain.setAdapter(new HomeRecyclerViewAdapter(mData));
     }
-
 
 }

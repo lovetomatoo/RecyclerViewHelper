@@ -1,7 +1,7 @@
 package com.quanmin.guohongxin.recyclerviewhelper.bean;
 
 /**
- * Created by Administrator on 2017/1/25.
+ * Created by guo_hx on 2017/1/25.
  */
 
 public class AnimItemModel {
