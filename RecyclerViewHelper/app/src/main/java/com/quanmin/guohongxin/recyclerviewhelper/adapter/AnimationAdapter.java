@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.quanmin.guohongxin.recyclerviewhelper.R;
-import com.quanmin.guohongxin.recyclerviewhelper.bean.AnimItemModel;
+import com.quanmin.guohongxin.recyclerviewhelper.bean.ItemModel;
 
 import java.util.ArrayList;
 
@@ -20,9 +20,9 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.Hold
 
     private String TAG = getClass().getSimpleName();
 
-    private ArrayList<AnimItemModel> mList;
+    private ArrayList<ItemModel> mList;
 
-    public AnimationAdapter(ArrayList<AnimItemModel> list) {
+    public AnimationAdapter(ArrayList<ItemModel> list) {
 
         mList = list;
     }
@@ -35,10 +35,24 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.Hold
     }
 
     @Override
-    public void onBindViewHolder(Holder holder, int position) {
+    public void onBindViewHolder(Holder holder, final int position) {
 
         holder.mIvItemRvAnim.setImageResource(mList.get(position).pic_res);
         holder.mTvItemRvAnim.setText(mList.get(position).des_res);
+
+        holder.mIvItemRvAnim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addItem(position);
+            }
+        });
+
+        holder.mTvItemRvAnim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeItem(position);
+            }
+        });
     }
 
     @Override
@@ -52,13 +66,22 @@ public class AnimationAdapter extends RecyclerView.Adapter<AnimationAdapter.Hold
         private final ImageView mIvItemRvAnim;
         private final TextView mTvItemRvAnim;
 
-        public Holder(View itemView) {
+        Holder(View itemView) {
 
             super(itemView);
             mIvItemRvAnim = (ImageView) itemView.findViewById(R.id.iv_item_rv_anim);
             mTvItemRvAnim = (TextView) itemView.findViewById(R.id.tv_item_rv_anim);
         }
+    }
 
+    public void addItem(int position) {
+        mList.add(position, mList.get(0));
+        notifyItemInserted(position);
+    }
+
+    public void removeItem(int position) {
+        mList.remove(position);
+        notifyItemRemoved(position);
     }
 
 }

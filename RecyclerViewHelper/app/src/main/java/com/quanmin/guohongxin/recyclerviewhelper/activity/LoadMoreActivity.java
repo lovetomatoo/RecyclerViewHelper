@@ -7,28 +7,28 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.quanmin.guohongxin.recyclerviewhelper.R;
-import com.quanmin.guohongxin.recyclerviewhelper.adapter.AnimationAdapter;
+import com.quanmin.guohongxin.recyclerviewhelper.adapter.LoadmoreAdapter;
 import com.quanmin.guohongxin.recyclerviewhelper.bean.ItemModel;
 
 import java.util.ArrayList;
 
 /**
- * Created by guo_hx on 2017/1/24.
+ * Created by guo_hx on 2017/4/17 17:04.
  */
-public class AnimationActivity extends AppCompatActivity {
+public class LoadMoreActivity extends AppCompatActivity {
 
-    private String TAG = getClass().getSimpleName();
+    private static final String TAG = LoadMoreActivity.class.getSimpleName();
 
     private int pic_res[] = {R.mipmap.pic_anim_item_1, R.mipmap.pic_anim_item_2};
     private int des_res[] = {R.string.item_anim_1, R.string.item_anim_2};
 
-    private RecyclerView mRvAnim;
+    private RecyclerView mRvLoadmore;
     private ArrayList<ItemModel> mData;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_animation);
+        setContentView(R.layout.activity_loadmore);
 
         initData();
         initView();
@@ -37,22 +37,16 @@ public class AnimationActivity extends AppCompatActivity {
     private void initData() {
         mData = new ArrayList<>();
         for (int i = 0; i < 50; i++) {
-            ItemModel animItemModel = new ItemModel();
-            animItemModel.pic_res = pic_res[i % 2];
-            animItemModel.des_res = i + "";
-            mData.add(animItemModel);
+            ItemModel itemModel = new ItemModel();
+            itemModel.pic_res = pic_res[i % 2];
+            itemModel.des_res = i + "";
+            mData.add(itemModel);
         }
     }
 
     private void initView() {
-
-        mRvAnim = (RecyclerView) findViewById(R.id.rv_anim);
-
-        mRvAnim.setHasFixedSize(true);
-        mRvAnim.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-
-        AnimationAdapter animationAdapter = new AnimationAdapter(mData);
-        mRvAnim.setAdapter(animationAdapter);
+        mRvLoadmore = (RecyclerView) findViewById(R.id.rv_loadmore);
+        mRvLoadmore.setLayoutManager(new LinearLayoutManager(this));
+        mRvLoadmore.setAdapter(new LoadmoreAdapter(mData));
     }
-
 }

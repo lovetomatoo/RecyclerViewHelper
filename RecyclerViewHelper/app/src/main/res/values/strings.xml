@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RecyclerViewHelper</string>
+    <string name="app_name">RV_Helper</string>
 
     <string name="item_main_1">动画</string>
     <string name="item_main_2">item2</string>

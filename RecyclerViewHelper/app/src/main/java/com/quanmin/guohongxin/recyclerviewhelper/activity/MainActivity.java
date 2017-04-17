@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private int des_res[] = {R.string.item_main_1, R.string.item_main_2, R.string.item_main_3, R.string.item_main_4, R.string.item_main_5, R.string.item_main_6, R.string.item_main_7};
     private int pic_res[] = {R.mipmap.item_main, R.mipmap.item_main, R.mipmap.item_main, R.mipmap.item_main, R.mipmap.item_main, R.mipmap.item_main, R.mipmap.item_main};
-    private Class<?> class_res[] = {AnimationActivity.class, AnimationActivity.class, AnimationActivity.class, AnimationActivity.class, AnimationActivity.class, AnimationActivity.class, AnimationActivity.class};
+    private Class<?> class_res[] = {AnimationActivity.class, LoadMoreActivity.class, AnimationActivity.class, AnimationActivity.class, AnimationActivity.class, AnimationActivity.class, AnimationActivity.class};
 
     private RecyclerView mRvMain;
     private ArrayList<HomeItemModel> mData;
