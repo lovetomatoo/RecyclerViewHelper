@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.quanmin.guohongxin.recyclerviewhelper.R;
 import com.quanmin.guohongxin.recyclerviewhelper.adapter.LoadmoreAdapter;
@@ -24,6 +26,7 @@ public class LoadMoreActivity extends AppCompatActivity {
 
     private RecyclerView mRvLoadmore;
     private ArrayList<ItemModel> mData;
+    private LinearLayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class LoadMoreActivity extends AppCompatActivity {
 
         initData();
         initView();
+        initListener();
     }
 
     private void initData() {
@@ -46,7 +50,24 @@ public class LoadMoreActivity extends AppCompatActivity {
 
     private void initView() {
         mRvLoadmore = (RecyclerView) findViewById(R.id.rv_loadmore);
-        mRvLoadmore.setLayoutManager(new LinearLayoutManager(this));
+        mLayoutManager = new LinearLayoutManager(this);
+        mRvLoadmore.setLayoutManager(mLayoutManager);
         mRvLoadmore.setAdapter(new LoadmoreAdapter(mData));
     }
+
+    private void initListener() {
+        mRvLoadmore.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (newState == RecyclerView.SCROLL_STATE_IDLE
+                        && mLayoutManager.getItemCount() < mLayoutManager.findLastVisibleItemPosition() + 2) {
+                    Log.i(TAG, "onScrollStateChanged__newState == " + newState);
+                    //TODO......Loadmore
+                    Toast.makeText(LoadMoreActivity.this, "Loadmore", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
 }
